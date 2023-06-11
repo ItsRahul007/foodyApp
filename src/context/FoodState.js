@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import FoodData from './FoodData'
+import React from 'react';
+import FoodData from './FoodData';
 
 const sampleFoodData = [
     {
@@ -182,7 +182,7 @@ const sampleFoodData = [
         "image": "https://spoonacular.com/recipeImages/638549-312x231.jpg",
         "imageType": "jpg"
     }
-]
+];
 
 function FoodState(props) {
     

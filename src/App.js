@@ -1,5 +1,5 @@
-import Navbar from "./components/layouts/Navbar"
-import Home from "./components/main-comps/Home"
+import Navbar from "./components/layouts/Navbar";
+import Home from "./components/main-comps/Home";
 
 function App() {
   return (
@@ -8,6 +8,6 @@ function App() {
       <Home/>
     </>
   );
-}
+};
 
 export default App;

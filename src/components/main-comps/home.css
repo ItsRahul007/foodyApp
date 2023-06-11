@@ -1,0 +1,45 @@
+/* ----------------------------food item---------------------------- */
+.food-con{
+    height: 260px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease .3s;
+}
+
+.food-con:hover{
+    transform: scale(1.1);
+}
+
+.food-con .image{
+    width: 100%;
+    height: 176px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease .2s;
+}
+
+.food-con .image img{
+    height: 100%;
+}
+
+.food-con .title{
+    width: 98%;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* ----------------------------home---------------------------- */
+.container{
+    margin: 0 170px;
+    display: grid;
+    grid-template-rows: repeat(4, 37vh);
+    grid-template-columns: repeat(4, 20vw);
+}
