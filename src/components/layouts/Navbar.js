@@ -15,8 +15,8 @@ function Navbar() {
           <button>Search</button>
         </div>
         <div className='cart-icons'>
-        <i class="fa-sharp fa-solid fa-cart-shopping"></i>
-        <i class="fa-sharp fa-solid fa-heart"></i>
+          <i className="fa-sharp fa-solid fa-cart-shopping"></i>
+          <i className="fa-sharp fa-solid fa-heart"></i>
         </div>
       </div>
     </nav>
