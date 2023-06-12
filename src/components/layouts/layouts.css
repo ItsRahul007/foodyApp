@@ -1,0 +1,47 @@
+.navbar{
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 1px 10px #555;
+}
+
+.nav-icon{
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-icon img{
+    height: 90px;
+}
+
+.search-con input{
+    height: 40px;
+    background: transparent;
+    border-radius: 6px;
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.search-con button{
+    background: transparent;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.search-con button:hover{
+    background: black;
+    color: white;
+}
+
+.cart-icons{
+    margin-left: 40px;
+    margin-right: -100px;
+}
+
+.cart-icons i{
+    margin: 0 10px;
+    font-size: 22px;
+}

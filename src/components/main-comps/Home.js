@@ -8,11 +8,13 @@ function Home() {
   return (
     <>
       <div className='container'>
-        {sampleFoodData.map(data => {
-          return (
-            <Fooditems key={data.id} imgUrl={data.image} title={data.title}/>
-          )
-        })}
+        <div>
+          {sampleFoodData.map(data => {
+            return (
+              <Fooditems key={data.id} imgUrl={data.image} title={data.title}/>
+            )
+          })}
+        </div>
       </div>
     </>
   )
