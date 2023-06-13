@@ -10,11 +10,10 @@
 }
 
 .food-con:hover{
-    transform: scale(0.9);
+    transform: scale(1.1);
 }
 
 .food-con:hover .image img{
-    
     box-shadow: 0 4px 20px #444;
 }
 
@@ -45,15 +44,77 @@
 .main-image{
     height: 300px;
     margin-bottom: 20px ;
-    background: url("../icon-image/bg_image.jpg") no-repeat;
+    background: linear-gradient(to top, #333436 -23%, transparent), url("../icon-image/bg_image.jpg");
+    background-size: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     color: #fff;
+    text-align: center;
+}
+
+.main-image h1{
+    font-size: 40px;
 }
 
 .main-image img{
     height: 280px;
+}
+
+.slider{
+    margin: 60px 0;
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.slider h3{
+    font-size: 26px;
+    margin: 25px 0;
+}
+
+.slider span{
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider button{
+    height: 30px;
+    width: 90px;
+    background: transparent;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.slider button:hover{
+    background-color: black;
+    color: white;
+}
+
+.slider .slider-con{
+    width: 670px;
+    height: 220px;
+    display: flex;
+    scroll-behavior: smooth;
+    overflow: scroll;
+    transition: ease .5s;
+}
+
+.slider .slider-con img{
+    height: 150px;
+    width: 250px;
+    margin: 20px 20px;
+    border-radius: 20px;
+    transition: ease .5s;
+}
+
+.slider .slider-con img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px #444;
+}
+
+.slider .slider-con::-webkit-scrollbar{
+    display: none;
 }
 
 .container{

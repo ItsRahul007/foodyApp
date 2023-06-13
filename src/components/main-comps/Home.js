@@ -1,7 +1,8 @@
 import React, {useContext} from 'react'
 import Fooditems from './Fooditems';
 import FoodData from '../../context/FoodData';
-import indian_food from "../icon-image/Indian-Food.png"
+import indian_food from "../icon-image/Indian-Food.png";
+import Slider from './Slider';
 
 function Home() {
   const {sampleFoodData} = useContext(FoodData);
@@ -9,10 +10,10 @@ function Home() {
   return (
     <>
       <div className='main-image'>
-        <h1>Order Your Fevorite Food Online</h1>
+        <h1>Order Your Fevorite Food <br/> Online</h1>
         <img src={indian_food} alt=''/>
       </div>
-      <div className='slider'></div>
+      <Slider/>
       <div className='container'>
         <div>
           {sampleFoodData.map(data => {
