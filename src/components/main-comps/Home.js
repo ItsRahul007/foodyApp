@@ -5,7 +5,7 @@ import indian_food from "../icon-image/Indian-Food.png";
 import Slider from './Slider';
 
 function Home() {
-  const { foodData, clickedFood } = useContext(FoodData);
+  const { foodData, clickedFood, foodinfo } = useContext(FoodData);
 
   return (
     <>
@@ -21,7 +21,7 @@ function Home() {
         <div>
           {foodData.length !== 0 && foodData.map(data => {
             return (
-              <Fooditems key={data.id} imgUrl={data.image} title={data.title} />
+              <Fooditems key={data.id} foodinfo={foodinfo} data={data} />
             )
           })}
         </div>

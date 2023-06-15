@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import FoodData from './FoodData';
+import {useNavigate} from "react-router-dom"
 
 const sampleFoodData = [
     {
@@ -186,27 +187,35 @@ const sampleFoodData = [
 
 function FoodState(props) {
     const [foodData, setFoodData] = useState(sampleFoodData);
+    // for sending the recipe information in FoodInfo component
+    const [recipeInfo, setRecipeInfo] = useState();
+    const navigate = useNavigate();
 
     // For fetching clicked or selected food
     async function clickedFood(query, cuisine){
         try {
-            const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&query=${query}&number=15${cuisine &&  `&cuisine=${cuisine}`}`
+            const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&query=${query}&number=15${cuisine && `&cuisine=${cuisine}`}`
             const responce = await fetch(url, {
                 headers: {
                     "Content-Type": "application/json",
                 }
             });
             const parsedData = await responce.json();
-            console.log(parsedData);
             setFoodData(parsedData.results);
             
         } catch (error) {
             console.log("Network did not responding");
         };
     };
+
+    // Setting the data to recipe information
+    async function foodinfo(data){
+        setRecipeInfo(data);
+        data.length !==0 ? navigate("/foodinfo") : navigate("/")
+    }
     
     return (
-        <FoodData.Provider value={{foodData, clickedFood}}>
+        <FoodData.Provider value={{foodData, clickedFood, recipeInfo, foodinfo}}>
             {props.children}
         </FoodData.Provider>
     );

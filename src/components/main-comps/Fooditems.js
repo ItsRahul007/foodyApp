@@ -1,17 +1,17 @@
 import React from 'react';
 import "./home.css";
 
-function Fooditems({ imgUrl, title }) {
+function Fooditems({data, foodinfo}) {
+  const { image, title } = data;
 
   return (
-    <div className='food-con'>
+    <div onClick={()=> foodinfo(data)} className='food-con'>
         <div className='image'>
-            <img src={imgUrl} alt='failed to load'/>
+            <img src={image} alt='failed to load'/>
         </div>
         <div className='title'>
             <p>{title}</p>
-        </div>
-
+        </div>      
     </div>
   );
 };
