@@ -42,7 +42,7 @@
 
 /* ----------------------------home---------------------------- */
 .main-image{
-    height: 300px;
+    height: 350px;
     margin-bottom: 20px ;
     background: linear-gradient(to top, #333436 -23%, transparent), url("../icon-image/bg_image.jpg");
     background-size: 100%;
@@ -55,10 +55,18 @@
 
 .main-image h1{
     font-size: 40px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .main-image img{
     height: 280px;
+}
+
+.item-head{
+    text-align: center;
+    margin: 40px 0;
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .slider{
@@ -69,11 +77,14 @@
 }
 
 .slider h3{
-    font-size: 26px;
+    font-size: 35px;
     margin: 25px 0;
+    margin-right: 190px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .slider span{
+    margin: 10px 0;
     display: flex;
     justify-content: space-between;
 }
@@ -84,6 +95,7 @@
     background: transparent;
     border-radius: 15px;
     font-size: 20px;
+    transition: ease .5s;
 }
 
 .slider button:hover{

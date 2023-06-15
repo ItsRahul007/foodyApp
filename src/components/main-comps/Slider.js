@@ -6,25 +6,27 @@ import noodle from "../icon-image/Noodle.png";
 import pasta from "../icon-image/Pasta.png";
 import pizza from "../icon-image/Pizza.png";
 
-
-function Slider() {
-    let sliderContainer;
+function Slider({clickedFood}) {
+    let sliderContainer; //Declaring first for not getting error
 
     useEffect(() => {
-        sliderContainer = document.querySelector(".slider-con");
-        sliderContainer.addEventListener("wheel", (e)=>{
-            if(e.deltaY >= 0){
+        // Updating sliderContainer in useEffect and adding scroll event listner
+        sliderContainer = document.getElementById("sliderCon");
+        sliderContainer.addEventListener("wheel", (e) => {
+            if (e.deltaY >= 0) {
                 sliderContainer.scrollLeft += 600;
             }
             else sliderContainer.scrollLeft -= 600;
-        })
-    })
+        });
+    });
+
+    // Function for scrolling when clicked on button
     function scrollSlider(point) {
-        if(point==="right"){
+        if (point === "right") {
             sliderContainer.scrollLeft += 670;
         }
         else sliderContainer.scrollLeft -= 670;
-    }
+    };
 
     return (
         <div className='slider'>
@@ -34,16 +36,15 @@ function Slider() {
                 <button onClick={() => scrollSlider("right")}>Right</button>
             </span>
             <div id='sliderCon' className='slider-con'>
-                <img src={biriyani} alt='biriyani' />
-                <img src={pizza} alt='biriyani' />
-                <img src={momo} alt='biriyani' />
-                <img src={iceream} alt='biriyani' />
-                <img src={pasta} alt='biriyani' />
-                <img src={noodle} alt='biriyani' />
+                <img src={biriyani} alt='biriyani' onClick={()=> clickedFood("biryani", "american")}/>
+                <img src={pizza} alt='biriyani' onClick={()=> clickedFood("pizza", "italiyan")}/>
+                <img src={momo} alt='biriyani' onClick={()=> clickedFood("momo", "tibet")}/>
+                <img src={iceream} alt='biriyani' onClick={()=> clickedFood("ice cream", "San Francisco")}/>
+                <img src={pasta} alt='biriyani' onClick={()=> clickedFood("pasta", "american")}/>
+                <img src={noodle} alt='biriyani' onClick={()=> clickedFood("noodle", "chinice")}/>
             </div>
         </div>
     );
 };
-
 
 export default Slider;

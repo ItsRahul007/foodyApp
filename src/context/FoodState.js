@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FoodData from './FoodData';
 
 const sampleFoodData = [
@@ -185,9 +185,28 @@ const sampleFoodData = [
 ];
 
 function FoodState(props) {
+    const [foodData, setFoodData] = useState(sampleFoodData);
+
+    // For fetching clicked or selected food
+    async function clickedFood(query, cuisine){
+        try {
+            const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&query=${query}&number=15${cuisine &&  `&cuisine=${cuisine}`}`
+            const responce = await fetch(url, {
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            });
+            const parsedData = await responce.json();
+            console.log(parsedData);
+            setFoodData(parsedData.results);
+            
+        } catch (error) {
+            console.log("Network did not responding");
+        };
+    };
     
     return (
-        <FoodData.Provider value={{sampleFoodData}}>
+        <FoodData.Provider value={{foodData, clickedFood}}>
             {props.children}
         </FoodData.Provider>
     );
