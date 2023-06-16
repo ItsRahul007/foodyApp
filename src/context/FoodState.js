@@ -186,10 +186,15 @@ const sampleFoodData = [
 ];
 
 function FoodState(props) {
+    const navigate = useNavigate();
     const [foodData, setFoodData] = useState(sampleFoodData);
     // for sending the recipe information in FoodInfo component
-    const [recipeInfo, setRecipeInfo] = useState();
-    const navigate = useNavigate();
+    const [recipeInfo, setRecipeInfo] = useState({
+        "id": 638549,
+        "title": "Chili and Garlic Spiced Beef and Broccoli Stir Fry",
+        "image": "https://spoonacular.com/recipeImages/638549-312x231.jpg",
+        "imageType": "jpg"
+    });
 
     // For fetching clicked or selected food
     async function clickedFood(query, cuisine){
@@ -211,7 +216,7 @@ function FoodState(props) {
     // Setting the data to recipe information
     async function foodinfo(data){
         setRecipeInfo(data);
-        data.length !==0 ? navigate("/foodinfo") : navigate("/")
+        data.length !==0 ? navigate("/foodinfo") : navigate("/");
     }
     
     return (

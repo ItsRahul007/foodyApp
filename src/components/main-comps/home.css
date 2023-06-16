@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 /* ----------------------------food item---------------------------- */
 .food-con{
     height: 260px;
@@ -138,4 +139,78 @@
     display: grid;
     grid-template-rows: repeat(4, 240px);
     grid-template-columns: repeat(4, 290px);
+}
+
+/* ----------------------------food info---------------------------- */
+.foodInfo-main{
+    display: flex;
+    margin: 70px 0;
+    justify-content: center;
+}
+
+.foodInfo-main .left-main{
+    margin: 0 20px;
+}
+
+.foodInfo-main .left-main div{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f2f2f2;
+    padding: 20px;
+    padding-bottom: 30px;
+    text-align: end;
+}
+
+.foodInfo-main .left-main div span{
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    left: 330px;
+    top: -8px;
+}
+
+.foodInfo-main .left-main div span:hover i{
+    color: #9c9494;
+}
+
+.foodInfo-main .left-main div span i{
+    font-size: 16px;
+    color: #c8c8c8;
+    margin-top: 10px;
+    transition: ease .5s;
+}
+
+.foodInfo-main .left-main div img{
+    height: 280px;
+}
+
+.foodInfo-main .left-main button{
+    margin: 20px 10px;
+    padding: 15px;
+    padding: 13px 0;
+    width: 180px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+.btn-add{
+    background-color: #ff9f00;
+}
+
+.btn-buy{
+    background-color: #fb641b;
+}
+
+.foodInfo-main .left-main button i{
+    margin: 0 10px;
 }
