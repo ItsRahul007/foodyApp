@@ -1,22 +1,42 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import "./layouts.css";
+import { Link } from 'react-router-dom';
 import food_icon from "../icon-image/food_icon.png";
+import FoodData from '../../context/FoodData';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
+  const location = useLocation();
+  console.log(location)
+  const navigate = useNavigate();
+  const [value, setValue] = useState('');
+  const { clickedFood } = useContext(FoodData);
+
+  function searchRecipe(){
+    if(location.pathname === "/" && value.length >= 1){
+      clickedFood(value, '');
+    }
+    else if(value.length <= 1){} // Do nothing
+    else{
+      navigate("/");
+      clickedFood(value, '');
+    }
+  }
+
   return (
     <nav className='navbar'>
       <div className='nav-icon'>
-        <img src={food_icon} alt='icon'/>
+        <Link to="/"><img src={food_icon} alt='icon' /></Link>
         <h3>Foody</h3>
       </div>
-      <div style={{marginLeft: "250px", display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "30%"}}>
+      <div style={{ marginLeft: "250px", display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "30%" }}>
         <div className='search-con'>
-          <input type='search' placeholder='Search for food'/>
-          <button>Search</button>
+          <input type='search' placeholder='Search for food' onChange={(e) => setValue(e.target.value)} />
+          <button onClick={searchRecipe}>Search</button>
         </div>
         <div className='cart-icons'>
-          <i className="fa-sharp fa-solid fa-cart-shopping"></i>
-          <i className="fa-sharp fa-solid fa-heart"></i>
+          <Link to="/card"><i className="fa-sharp fa-solid fa-cart-shopping"></i></Link>
+          <Link to="/fevorite"><i className="fa-sharp fa-solid fa-heart"></i></Link>
         </div>
       </div>
     </nav>

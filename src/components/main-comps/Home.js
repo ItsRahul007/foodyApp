@@ -17,13 +17,14 @@ function Home() {
       <div className='item-head'>
         <h3>Choose your fevorite food</h3>
       </div>
-      <div className='container'>
+      <div id='recipeItems' className='container'>
         <div>
-          {foodData.length !== 0 && foodData.map(data => {
+          {foodData.length !== 0 ? foodData.map(data => {
             return (
               <Fooditems key={data.id} foodinfo={foodinfo} data={data} />
             )
-          })}
+          }): <h1>Can't finde any similar recipe</h1> 
+        }
         </div>
       </div>
     </>

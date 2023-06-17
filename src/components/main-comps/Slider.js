@@ -5,6 +5,7 @@ import momo from "../icon-image/Momo.png";
 import noodle from "../icon-image/Noodle.png";
 import pasta from "../icon-image/Pasta.png";
 import pizza from "../icon-image/Pizza.png";
+import { HashLink } from 'react-router-hash-link';
 
 function Slider({clickedFood}) {
     let sliderContainer; //Declaring first for not getting error
@@ -36,12 +37,24 @@ function Slider({clickedFood}) {
                 <button onClick={() => scrollSlider("right")}>Right</button>
             </span>
             <div id='sliderCon' className='slider-con'>
-                <img src={biriyani} alt='biriyani' onClick={()=> clickedFood("biryani", "american")}/>
-                <img src={pizza} alt='biriyani' onClick={()=> clickedFood("pizza", "italiyan")}/>
-                <img src={momo} alt='biriyani' onClick={()=> clickedFood("momo", "tibet")}/>
-                <img src={iceream} alt='biriyani' onClick={()=> clickedFood("ice cream", "San Francisco")}/>
-                <img src={pasta} alt='biriyani' onClick={()=> clickedFood("pasta", "american")}/>
-                <img src={noodle} alt='biriyani' onClick={()=> clickedFood("noodle", "chinice")}/>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={biriyani} alt='biriyani' onClick={()=> clickedFood("biryani", "american")}/>
+                </HashLink>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={pizza} alt='biriyani' onClick={()=> clickedFood("pizza", "italiyan")}/>
+                </HashLink>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={momo} alt='biriyani' onClick={()=> clickedFood("momo", "tibet")}/>
+                </HashLink>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={iceream} alt='biriyani' onClick={()=> clickedFood("ice cream", "San Francisco")}/>
+                </HashLink>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={pasta} alt='biriyani' onClick={()=> clickedFood("pasta", "american")}/>
+                </HashLink>
+                <HashLink smooth to="/#recipeItems">
+                    <img src={noodle} alt='biriyani' onClick={()=> clickedFood("noodle", "chinice")}/>
+                </HashLink>
             </div>
         </div>
     );

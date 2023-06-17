@@ -213,10 +213,23 @@ function FoodState(props) {
         };
     };
 
-    // Setting the data to recipe information
+    // Setting the data to recipe information inside local storage
     async function foodinfo(data){
-        setRecipeInfo(data);
-        data.length !==0 ? navigate("/foodinfo") : navigate("/");
+        localStorage.removeItem("recipeInfo");
+        try {
+            const url = `https://api.spoonacular.com/recipes/${data.id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_KEY}`
+            const responce = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+        const parsedData = await responce.json();
+        setRecipeInfo(parsedData);
+        } catch (error) {
+            console.log("Network did not responding...");
+        }
+        localStorage.setItem("recipeInfo", JSON.stringify(data));
+        navigate("/foodinfo");
     }
     
     return (
