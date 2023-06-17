@@ -188,13 +188,6 @@ const sampleFoodData = [
 function FoodState(props) {
     const navigate = useNavigate();
     const [foodData, setFoodData] = useState(sampleFoodData);
-    // for sending the recipe information in FoodInfo component
-    const [recipeInfo, setRecipeInfo] = useState({
-        "id": 638549,
-        "title": "Chili and Garlic Spiced Beef and Broccoli Stir Fry",
-        "image": "https://spoonacular.com/recipeImages/638549-312x231.jpg",
-        "imageType": "jpg"
-    });
 
     // For fetching clicked or selected food
     async function clickedFood(query, cuisine){
@@ -209,31 +202,48 @@ function FoodState(props) {
             setFoodData(parsedData.results);
             
         } catch (error) {
-            console.log("Network did not responding");
+            console.log("Network did not responding...");
         };
     };
 
     // Setting the data to recipe information inside local storage
-    async function foodinfo(data){
+    async function foodinfo(data){        
         localStorage.removeItem("recipeInfo");
+        localStorage.removeItem("moreRecipeInfo");
+        localStorage.setItem("recipeInfo", JSON.stringify(data));
+
         try {
-            const url = `https://api.spoonacular.com/recipes/${data.id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_KEY}`
+            const url = `https://api.spoonacular.com/recipes/${data.id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_KEY}`;
+
             const responce = await fetch(url, {
             headers: {
                 "Content-Type": "application/json",
             }
         });
-        const parsedData = await responce.json();
-        setRecipeInfo(parsedData);
+            const parsedData = await responce.json();
+            // Storing the needed values inside local storage with "moreRecipeInfo" key
+            let moreData = {
+                vegetarian: parsedData.vegetarian,
+                vegan: parsedData.vegan,
+                glutenFree: parsedData.glutenFree,
+                dairyFree: parsedData.dairyFree,
+                veryHealthy: parsedData.veryHealthy,
+                cheap: parsedData.cheap,
+                veryPopular: parsedData.veryPopular,
+                sustainable: parsedData.sustainable,
+                lowFodmap: parsedData.lowFodmap,
+                aggregateLikes: parsedData.aggregateLikes,
+                healthScore: parsedData.healthScore
+              };
+              localStorage.setItem("moreRecipeInfo", JSON.stringify(moreData));
+            navigate("/foodinfo");
         } catch (error) {
             console.log("Network did not responding...");
         }
-        localStorage.setItem("recipeInfo", JSON.stringify(data));
-        navigate("/foodinfo");
     }
     
     return (
-        <FoodData.Provider value={{foodData, clickedFood, recipeInfo, foodinfo}}>
+        <FoodData.Provider value={{foodData, clickedFood, foodinfo}}>
             {props.children}
         </FoodData.Provider>
     );

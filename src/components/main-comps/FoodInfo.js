@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import FoodData from '../../context/FoodData';
+import React from 'react';
 
 function FoodInfo() {
-  const { recipeInfo } = useContext(FoodData);
-  const { moreData } = recipeInfo;
   const data = JSON.parse(localStorage.getItem("recipeInfo"));
+  const moreData = JSON.parse(localStorage.getItem("moreRecipeInfo"));
   const { image, title } = data;
+  const key = Object.keys(moreData);
+  const value = Object.values(moreData);
 
   return (
     <div className='foodInfo-main'>
@@ -24,7 +24,10 @@ function FoodInfo() {
           </span>
           {title}
         </div>
-        <div className='more-recipe-info'></div>
+        <div className='more-recipe-info'>
+          {key.map((e, index) => console.log(e, index))}
+          TODO: value gulo ke display kor with style
+        </div>
       </div>
     </div>
   );

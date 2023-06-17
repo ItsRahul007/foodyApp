@@ -7,7 +7,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const location = useLocation();
-  console.log(location)
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const { clickedFood } = useContext(FoodData);
