@@ -1,4 +1,4 @@
-import Card from "./components/Card-Fevo/Card";
+import Card from "./components/Card-Fevo/Cart";
 import Fevorite from "./components/Card-Fevo/Fevorite";
 import Navbar from "./components/layouts/Navbar";
 import FoodInfo from "./components/main-comps/FoodInfo";

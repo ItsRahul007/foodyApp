@@ -14,9 +14,9 @@ function Slider({clickedFood}) {
         // Adding scroll event listner inside use effect hook
         sliderContainer.current.addEventListener("wheel", (e) => {
             if (e.deltaY >= 0) {
-                sliderContainer.current.scrollLeft += 600;
+                sliderContainer.current.scrollLeft += 670;
             }
-            else sliderContainer.current.scrollLeft -= 600;
+            else sliderContainer.current.scrollLeft -= 670;
         });
     });
 

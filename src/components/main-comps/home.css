@@ -151,6 +151,7 @@
 
 .foodInfo-main .left-main{
     margin: 0 20px;
+    width: 500px;
 }
 
 .foodInfo-main .left-main div{
@@ -217,7 +218,7 @@
 }
 
 .right-main{
-    width: 500px;
+    width: 400px;
     padding: 6px;
     padding-top: 20px;
 }
