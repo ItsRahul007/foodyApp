@@ -41,6 +41,15 @@
     text-align: center;
 }
 
+.food-con .title span{
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.food-con .title span i{
+    color: red;
+}
+
 /* ----------------------------home---------------------------- */
 .main-image{
     height: 350px;
@@ -173,7 +182,7 @@
     margin-bottom: 10px;
     cursor: pointer;
     position: relative;
-    left: 330px;
+    left: 400px;
     top: -8px;
 }
 

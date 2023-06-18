@@ -30,7 +30,7 @@ function Slider({clickedFood}) {
 
     return (
         <div className='slider'>
-            <h3> What is on your minde? </h3>
+            <h3> What is on your mind? </h3>
             <span>
                 <button onClick={() => scrollSlider("left")}>Left</button>
                 <button onClick={() => scrollSlider("right")}>Right</button>

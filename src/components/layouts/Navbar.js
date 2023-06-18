@@ -34,8 +34,8 @@ function Navbar() {
           <button onClick={searchRecipe}>Search</button>
         </div>
         <div className='cart-icons'>
-          <Link to="/card"><i className="fa-sharp fa-solid fa-cart-shopping"></i></Link>
-          <Link to="/fevorite"><i className="fa-sharp fa-solid fa-heart"></i></Link>
+          <Link to="/card">Cart<i className="fa-sharp fa-solid fa-cart-shopping"></i></Link>
+          <Link to="/fevorite">Fevorite<i className="fa-sharp fa-solid fa-heart"></i></Link>
         </div>
       </div>
     </nav>

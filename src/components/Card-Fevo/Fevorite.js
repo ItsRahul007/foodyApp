@@ -4,14 +4,14 @@ import FoodData from '../../context/FoodData';
 import Fooditems from '../main-comps/Fooditems';
 
 function Fevorite() {
-  const { fevoriteItem } = useContext(FoodData);
+  const { fevoriteItem, foodinfo, removeFevoriteItem } = useContext(FoodData);
   return (
     <div className='fevorite'>
       <h1>Your Fevorites</h1>
       <div className='fev-items'>
-        {fevoriteItem.map(data => {
-          return <Fooditems data={data}/>
-        })}
+        {fevoriteItem.length !== 0? fevoriteItem.map(data => {
+          return <Fooditems key={data.image} data={data} removeItem={removeFevoriteItem} foodinfo={foodinfo} />
+        }) : <h3>You did not add any fevorite food</h3> }
       </div>
     </div>
   )

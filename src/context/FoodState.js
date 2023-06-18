@@ -25,7 +25,7 @@ function FoodState(props) {
         };
     };
 
-    // Setting the recipe datas to inside local storage
+    // Setting the recipe datas to inside local storage and sending user to "/foodinfo"
     async function foodinfo(data){
         // Clearing the keys for updating them with new values
         localStorage.removeItem("recipeInfo");
@@ -39,7 +39,7 @@ function FoodState(props) {
             headers: {
                 "Content-Type": "application/json",
             }
-        });
+            });
             const parsedData = await responce.json();
             // Storing the needed values inside local storage with "moreRecipeInfo" key
             let moreData = {
@@ -55,7 +55,7 @@ function FoodState(props) {
                 aggregateLikes: parsedData.aggregateLikes,
                 healthScore: parsedData.healthScore
               };
-              localStorage.setItem("moreRecipeInfo", JSON.stringify(moreData));
+            localStorage.setItem("moreRecipeInfo", JSON.stringify(moreData));
             navigate("/foodinfo");
         } catch (error) {
             console.log("Network did not responding...");
@@ -66,9 +66,17 @@ function FoodState(props) {
     function addFevoriteItem(item){
         setFevoriteItem(fevoriteItem.concat(item));
     };
+
+    // For removing a item from fevorite items
+    function removeFevoriteItem(item){
+        const itemIndex = fevoriteItem.indexOf(item);
+        fevoriteItem.splice(itemIndex, 1);
+        const newArr = fevoriteItem;
+        setFevoriteItem(newArr);
+    };
     
     return (
-        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem}}>
+        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem, removeFevoriteItem}}>
             {props.children}
         </FoodData.Provider>
     );
