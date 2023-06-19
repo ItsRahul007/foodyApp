@@ -5,6 +5,7 @@ import Fooditems from '../main-comps/Fooditems';
 
 function Fevorite() {
   const { fevoriteItem, foodinfo, removeFevoriteItem } = useContext(FoodData);
+  
   return (
     <div className='fevorite'>
       <h1>Your Fevorites</h1>

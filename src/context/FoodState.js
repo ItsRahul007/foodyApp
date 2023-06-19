@@ -71,8 +71,7 @@ function FoodState(props) {
     function removeFevoriteItem(item){
         const itemIndex = fevoriteItem.indexOf(item);
         fevoriteItem.splice(itemIndex, 1);
-        const newArr = fevoriteItem;
-        setFevoriteItem(newArr);
+        setFevoriteItem(fevoriteItem);
     };
     
     return (
