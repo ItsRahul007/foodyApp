@@ -1,14 +1,15 @@
 import React, { useState, useRef } from 'react'
 
-function CartItems({data, remove}) {
-    const ref = useRef(null);
-    const [amount, setAmount] = useState(1);
-    const {image, title} = data;
+function CartItems({ data, remove }) {
+  const ref = useRef(null);
+  const value = useRef(null);
+  const [amount, setAmount] = useState(1);
+  const {image, title} = data;
 
-    function removeItem(item){
-        ref.current.style.display = "none";
-        remove(item);
-    };
+  function removeItem(item){
+      ref.current.style.display = "none";
+      remove(item);
+  };
 
   return (
     <div ref={ref} className='cart-items'>
@@ -20,7 +21,7 @@ function CartItems({data, remove}) {
           <span>
             <input type='number' value={amount} minLength={1} onChange={e => setAmount(e.target.value)} />
           </span>
-          <span> {100 * amount} </span>
+          <span ref={value}> {100 * amount} </span>
         </div>
         <div className='remove-btn'>
             <button onClick={()=>removeItem(data)}><i className="fa-solid fa-xmark"></i></button>

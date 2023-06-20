@@ -7,17 +7,21 @@ function FoodState(props) {
     const navigate = useNavigate();
     const [foodData, setFoodData] = useState(sampleFoodData);
     const [fevoriteItem, setFevoriteItem] = useState(sampleFevorite);
+    const [progress, setProgress] = useState(0) // for the loading bar
 
     // For fetching clicked or selected food
     async function clickedFood(query, cuisine){
         try {
+            setProgress(20);
             const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_KEY}&query=${query}&number=15${cuisine && `&cuisine=${cuisine}`}`;
             const responce = await fetch(url, {
                 headers: {
                     "Content-Type": "application/json",
                 }
             });
+            setProgress(60);
             const parsedData = await responce.json();
+            setProgress(100);
             setFoodData(parsedData.results);
             
         } catch (error) {
@@ -33,6 +37,7 @@ function FoodState(props) {
         localStorage.setItem("recipeInfo", JSON.stringify(data));
 
         try {
+            setProgress(20)
             const url = `https://api.spoonacular.com/recipes/${data.id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_KEY}`;
 
             const responce = await fetch(url, {
@@ -40,7 +45,9 @@ function FoodState(props) {
                 "Content-Type": "application/json",
             }
             });
+            setProgress(50)
             const parsedData = await responce.json();
+            setProgress(100);
             // Storing the needed values inside local storage with "moreRecipeInfo" key
             let moreData = {
                 vegetarian: parsedData.vegetarian,
@@ -76,18 +83,17 @@ function FoodState(props) {
 
     // For adding a new cart item
     function addCartItem(item){
-        setFevoriteItem(fevoriteItem.concat(item));
+        sampleCartData.concat(item);
     };
 
     // For removing a item from cart items
     function removeCartItem(item){
         const itemIndex = sampleCartData.indexOf(item);
         sampleCartData.splice(itemIndex, 1);
-        setFevoriteItem(sampleCartData);
     };
     
     return (
-        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem, removeFevoriteItem, sampleCartData, addCartItem, removeCartItem}}>
+        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem, removeFevoriteItem, sampleCartData, addCartItem, removeCartItem, progress, setProgress }}>
             {props.children}
         </FoodData.Provider>
     );

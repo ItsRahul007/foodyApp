@@ -4,6 +4,7 @@ import CartItems from './CartItems';
 
 function Cart() {
   const { sampleCartData, removeCartItem } = useContext(FoodData);
+  
   return (
     <section className='cart'>
       <div className='cart-head'>
@@ -20,7 +21,6 @@ function Cart() {
       {sampleCartData.map(data => {
         return <CartItems key={data.image} data={data} remove={removeCartItem} />
       })}
-      
     </section>
   );
 };

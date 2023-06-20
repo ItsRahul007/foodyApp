@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import FoodData from '../../context/FoodData';
 
 function FoodInfo() {
-  const {addFevoriteItem} = useContext(FoodData);
+  const { addFevoriteItem, addCartItem } = useContext(FoodData);
   const data = JSON.parse(localStorage.getItem("recipeInfo"));
   const moreData = JSON.parse(localStorage.getItem("moreRecipeInfo"));
   const { image, title } = data;
@@ -15,8 +15,12 @@ function FoodInfo() {
           <span onClick={()=>addFevoriteItem(data)}><i className="fa-sharp fa-solid fa-heart"></i></span>
           <img src={image} alt='failed to load' />
         </div>
-        <button className='btn-add'><i className="fa-sharp fa-solid fa-cart-shopping"></i>ADD TO CART</button>
-        <button className='btn-buy'><i className="fa-solid fa-bolt-lightning"></i>BUY NOW</button>
+        <button className='btn-add' onClick={()=> addCartItem(data)}>
+          <i className="fa-sharp fa-solid fa-cart-shopping"></i>ADD TO CART
+        </button>
+        <button className='btn-buy'>
+          <i className="fa-solid fa-bolt-lightning"></i>BUY NOW
+        </button>
       </div>
       <div className='right-main'>
         <div className='recipe-title'>
