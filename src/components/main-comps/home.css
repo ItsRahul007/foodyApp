@@ -206,12 +206,13 @@
     padding: 15px;
     padding: 13px 0;
     width: 180px;
+    color: white;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     border: none;
     border-radius: 2px;
-    color: white;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
 }
 
 .btn-add{

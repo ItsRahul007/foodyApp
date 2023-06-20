@@ -12,10 +12,19 @@
     align-items: center;
 }
 
+.navbar .nav-icon a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    height: 100%;
+    color: black;
+}
+
 .navbar .nav-icon h3{
     font-size: 36px;
     margin-right: 15px;
     font-family: 'Oxygen', sans-serif;
+    cursor: pointer;
 }
 
 .navbar .nav-icon img{

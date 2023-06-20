@@ -25,8 +25,10 @@ function Navbar() {
   return (
     <nav className='navbar'>
       <div className='nav-icon'>
-        <Link to="/"><img src={food_icon} alt='icon' /></Link>
-        <h3>Foody</h3>
+        <Link to="/">
+          <img src={food_icon} alt='icon' />
+          <h3>Foody</h3>
+        </Link>
       </div>
       <div style={{ marginLeft: "250px", display: "flex", justifyContent: "space-evenly", alignItems: "center", width: "30%" }}>
         <div className='search-con'>

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import FoodData from './FoodData';
 import {useNavigate} from "react-router-dom";
-import {sampleFevorite, sampleFoodData} from "./sampleData";
+import { sampleFevorite, sampleFoodData, sampleCartData } from "./sampleData";
 
 function FoodState(props) {
     const navigate = useNavigate();
@@ -73,9 +73,21 @@ function FoodState(props) {
         fevoriteItem.splice(itemIndex, 1);
         setFevoriteItem(fevoriteItem);
     };
+
+    // For adding a new cart item
+    function addCartItem(item){
+        setFevoriteItem(fevoriteItem.concat(item));
+    };
+
+    // For removing a item from cart items
+    function removeCartItem(item){
+        const itemIndex = sampleCartData.indexOf(item);
+        sampleCartData.splice(itemIndex, 1);
+        setFevoriteItem(sampleCartData);
+    };
     
     return (
-        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem, removeFevoriteItem}}>
+        <FoodData.Provider value={{foodData, clickedFood, foodinfo, fevoriteItem, addFevoriteItem, removeFevoriteItem, sampleCartData, addCartItem, removeCartItem}}>
             {props.children}
         </FoodData.Provider>
     );

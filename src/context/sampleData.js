@@ -208,4 +208,30 @@ const sampleFevorite = [
     },
 ];
 
-export {sampleFevorite, sampleFoodData};
+const sampleCartData = [
+    {
+        "id": 641845,
+        "title": "Easy Beef and Bean Chili",
+        "image": "https://spoonacular.com/recipeImages/641845-312x231.jpg",
+        "imageType": "jpg"
+    },
+    {
+        "id": 634888,
+        "title": "Best Buffalo Chicken Chili",
+        "image": "https://spoonacular.com/recipeImages/634888-312x231.jpg",
+        "imageType": "jpg"
+    },{
+        "id": 641627,
+        "title": "Dr Pepper Pulled Pork",
+        "image": "https://spoonacular.com/recipeImages/641627-312x231.jpg",
+        "imageType": "jpg"
+    },
+    {
+        "id": 642695,
+        "title": "Feta Stuffed Burgers",
+        "image": "https://spoonacular.com/recipeImages/642695-312x231.jpg",
+        "imageType": "jpg"
+    },
+];
+
+export { sampleFoodData, sampleFevorite, sampleCartData };
