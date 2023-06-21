@@ -83,7 +83,7 @@ function FoodState(props) {
 
     // For adding a new cart item
     function addCartItem(item){
-        sampleCartData.concat(item);
+        sampleCartData.push(item);
     };
 
     // For removing a item from cart items

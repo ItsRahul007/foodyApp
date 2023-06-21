@@ -71,3 +71,12 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+/* -----------------------------------------alert----------------------------------------- */
+.alert{
+    height: 40px;
+    width: 200px;
+    background-color: blue;
+    text-align: center;
+    margin: 20px;
+}

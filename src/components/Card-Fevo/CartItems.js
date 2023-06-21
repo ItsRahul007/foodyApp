@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react';
+import { toast } from 'react-toastify';
 
 function CartItems({ data, remove }) {
   const ref = useRef(null);
@@ -6,8 +7,9 @@ function CartItems({ data, remove }) {
   const [amount, setAmount] = useState(1);
   const {image, title} = data;
 
-  function removeItem(item){
+  function removeItem(item, message){
       ref.current.style.display = "none";
+      toast(message);
       remove(item);
   };
 
@@ -24,7 +26,7 @@ function CartItems({ data, remove }) {
           <span ref={value}> {100 * amount} </span>
         </div>
         <div className='remove-btn'>
-            <button onClick={()=>removeItem(data)}><i className="fa-solid fa-xmark"></i></button>
+            <button onClick={()=>removeItem(data, "Item removed")}><i className="fa-solid fa-xmark"></i></button>
         </div>
     </div>
   );

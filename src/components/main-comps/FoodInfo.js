@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import FoodData from '../../context/FoodData';
+import { toast } from 'react-toastify';
 
 function FoodInfo() {
   const { addFevoriteItem, addCartItem } = useContext(FoodData);
@@ -12,10 +13,15 @@ function FoodInfo() {
     <div className='foodInfo-main'>
       <div className='left-main'>
         <div>
-          <span onClick={()=>addFevoriteItem(data)}><i className="fa-sharp fa-solid fa-heart"></i></span>
+          <span onClick={()=> { addFevoriteItem(data); toast("Item added to fevorite")}}>
+            <i className="fa-sharp fa-solid fa-heart"></i>
+          </span>
           <img src={image} alt='failed to load' />
         </div>
-        <button className='btn-add' onClick={()=> addCartItem(data)}>
+        <button className='btn-add' onClick={()=> {
+          addCartItem(data)
+          toast("Item added to cart")
+        }}>
           <i className="fa-sharp fa-solid fa-cart-shopping"></i>ADD TO CART
         </button>
         <button className='btn-buy'>

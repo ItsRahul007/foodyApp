@@ -21,6 +21,7 @@ function Cart() {
       {sampleCartData.map(data => {
         return <CartItems key={data.image} data={data} remove={removeCartItem} />
       })}
+      <div style={{height: "30px"}}></div>
     </section>
   );
 };
